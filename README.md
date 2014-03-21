@@ -1,4 +1,5 @@
-layouthelper
+jQueryLayoutHelper
 ============
 
-Helper for HTML Layouts Coders
+RUS
+Позволяет организовать навигатор по страницам HTML верстки.

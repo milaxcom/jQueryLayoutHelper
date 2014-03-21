@@ -1,0 +1,4 @@
+#main:index.html:Главная
+#add:add.html:Дополнительная
+#contacts:contacts.html:Контакты
+#works:works.html:Портфолио
