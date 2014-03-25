@@ -7,3 +7,23 @@ jQueryLayoutHelper (RUS Description)
 - Подключение скрипта
 - Создание карты helper.txt
 
+Подключение скрипта, пример:
+```
+<script type="text/javascript" src="/js/jquery.layouthelper.min.js"></script>
+```
+
+Карта сайта задается текстовым файлом helper.txt в корневой директории каталога. Пример содержания файла ниже.
+Скачать пример: https://raw.githubusercontent.com/milaxcom/jQueryLayoutHelper/master/helper.txt.
+```
+#main:index.html:Главная
+#add:add.html:Дополнительная
+#contacts:contacts.html:Контакты
+#works:works.html:Портфолио
+```
+Каждый новый файл верстки на новой строке. Пример на основе первой строки:
+- #main — якорь для использования в ссылках верстки
+- index.html — путь файла верстки
+- Главная — название файла верстки
+
+
+
