@@ -36,4 +36,4 @@ jQueryLayoutHelper (RUS Description)
 ```html
 <a href="#contacts" class="par">Контактная информация</a>
 ```
-В данном примере при клике на ссылку пользователь попадет на страницу contacts.html.
+В данном примере при клике на ссылку пользователь попадет на страницу ```contacts.html```.
