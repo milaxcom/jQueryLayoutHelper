@@ -11,7 +11,9 @@
 
 var layoutHelper = function () {
 
-	layoutHelper.url = layoutHelper.getHelper();
+	layoutHelper.params = layoutHelper.getParams();
+
+	layoutHelper.url = layoutHelper.params["helper"];
 	layoutHelper.menu = {};
 
 	layoutHelper.box = "<div class='html-layouts-box'></div>";
@@ -102,7 +104,7 @@ layoutHelper.setLocation = function () {
 	var href = $(this).attr("href");
 	for (var key in layoutHelper.menu) {
 		if (layoutHelper.menu[key][0] == href) {
-			window.location = layoutHelper.menu[key][1];
+			window.location = layoutHelper.params["url"] + layoutHelper.menu[key][1];
 			return false;
 		}
 	}
@@ -129,21 +131,33 @@ layoutHelper.load = function () {
 	});
 };
 
-layoutHelper.getHelper = function () {
-	var helper = "/helper.txt";
+layoutHelper.getParams = function () {
+
+	var data = {
+		"helper"			: "/helper.txt",
+		"url"				: "/"
+	};
 
 	var src = $("script[src *= 'layouthelper']").attr("src");
 
 	var parts = src.split("?");
 
-	if (parts.length > 1) {
-		var param = parts[1].split("=");
-		if (param[0] == "helper") {
-			helper = param[1];
-		}
+	if (parts.length <= 1) {
+		return data;
+	}
+	
+	parts = parts[1].split("&");
+	var pair;
+
+	for (var i = 0; i < parts.length; i++) {
+
+		pair = parts[i].split('=');
+
+		data[ decodeURIComponent( pair[0] ) ] = decodeURIComponent( pair[1] );
+
 	}
 
-	return helper;
+	return data;
 };
 
 
