@@ -1,5 +1,17 @@
+/**
+ * jQueryLayoutHelper v1.1
+ *
+ * Copyright 2014 Milax
+ * http://www.milax.com/
+ *
+ * Author
+ * Maksim Gusakov
+ */
+
+
 var layoutHelper = function () {
-	layoutHelper.url = "/helper.txt";
+
+	layoutHelper.url = layoutHelper.getPath();
 	layoutHelper.menu = {};
 
 	layoutHelper.box = "<div class='html-layouts-box'></div>";
@@ -116,6 +128,24 @@ layoutHelper.load = function () {
 		}
 	});
 };
+
+layoutHelper.getHelper = function () {
+	var helper = "/helper.txt";
+
+	var src = $("script[src *= 'layouthelper']").attr("src");
+
+	var parts = src.split("?");
+
+	if (parts.length > 1) {
+		var param = parts[1].split("=");
+		if (param[0] == "helper") {
+			helper = param[1];
+		}
+	}
+
+	return helper;
+};
+
 
 $(document).ready(function() {
 	setTimeout(layoutHelper, 500);
