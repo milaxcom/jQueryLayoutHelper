@@ -11,7 +11,7 @@
 
 var layoutHelper = function () {
 
-	layoutHelper.url = layoutHelper.getPath();
+	layoutHelper.url = layoutHelper.getHelper();
 	layoutHelper.menu = {};
 
 	layoutHelper.box = "<div class='html-layouts-box'></div>";
